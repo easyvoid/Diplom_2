@@ -48,7 +48,7 @@ public class RegisterNewUserTest {
     }
 
     @Test
-    public void registerNewUserWithoutAllRequiredField() {
+    public void registerNewUserWithoutAllRequiredFields() {
         ValidatableResponse response = UserClient.registerUser(new User());
         response.assertThat().body("message", equalTo("Email, password and name are required fields")).and().body("success", equalTo(false)).and().statusCode(403);
     }

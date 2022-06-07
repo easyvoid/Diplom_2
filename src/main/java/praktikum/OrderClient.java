@@ -66,4 +66,24 @@ public class OrderClient {
                 .post("/api/orders")
                 .then().log().all();
     }
+
+    @Step("Запрос на получение заказов конкретного пользователя {user}")
+    public static ValidatableResponse getUserOrdersWithAuth(User user) {
+        String accessToken = loginUser(user).and().extract().body().path("accessToken");
+        return given()
+                .spec(getBaseSpec())
+                .header("Authorization", accessToken)
+                .when()
+                .get("/api/orders")
+                .then().log().all();
+    }
+
+    @Step("Запрос на получение заказов без авторизации")
+    public static ValidatableResponse getUserOrdersWithoutAuth() {
+        return given()
+                .spec(getBaseSpec())
+                .when()
+                .get("/api/orders")
+                .then().log().all();
+    }
 }

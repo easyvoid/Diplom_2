@@ -80,6 +80,4 @@ public class UserClient {
                 .patch("/api/auth/user")
                 .then().log().all();
     }
-
-
 }

@@ -1,6 +1,7 @@
 package praktikum;
 
 import io.restassured.response.ValidatableResponse;
+import org.junit.After;
 import org.junit.Test;
 
 import static org.hamcrest.Matchers.equalTo;
@@ -49,5 +50,10 @@ public class RegisterNewUserTest {
     public void registerNewUserWithoutAllRequiredFieldsTest() {
         ValidatableResponse response = UserClient.registerUser(new User());
         response.assertThat().body("message", equalTo("Email, password and name are required fields")).and().body("success", equalTo(false)).and().statusCode(403);
+    }
+
+    @After
+    public void tearDown() throws InterruptedException {
+        Thread.sleep(500);
     }
 }

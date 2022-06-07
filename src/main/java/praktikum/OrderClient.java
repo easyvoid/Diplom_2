@@ -27,23 +27,16 @@ public class OrderClient {
         return baseURI;
     }
 
-    @Step("Запрос на получение первого ингредиента")
-    public static String getFirstIngredient() {
+    @Step("Запрос на получение ингредиента с id = {index}")
+    public static String getIngredient(int index) {
+        String path = String.format("data[%s]._id", index);
         return given()
                 .spec(getBaseSpec())
                 .when()
                 .get("/api/ingredients")
-                .then().log().all().extract().body().path("data[0]._id");
+                .then().log().all().extract().body().path(path);
     }
 
-    @Step("Запрос на получение второго ингредиента")
-    public static String getSecondIngredient() {
-        return given()
-                .spec(getBaseSpec())
-                .when()
-                .get("/api/ingredients")
-                .then().log().all().extract().body().path("data[1]._id");
-    }
 
     @Step("Запрос на создание заказа без авторизации")
     public static ValidatableResponse createOrderNotAuth(Order order) {

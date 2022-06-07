@@ -90,7 +90,8 @@ public class UpdateUserParamTest {
     }
 
     @After
-    public void tearDown() {
+    public void tearDown() throws InterruptedException {
         UserClient.deleteUser(user);
+        Thread.sleep(500);
     }
 }

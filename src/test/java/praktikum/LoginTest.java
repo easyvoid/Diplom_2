@@ -48,8 +48,9 @@ public class LoginTest {
     }
 
     @After
-    public void tearDown() {
+    public void tearDown() throws InterruptedException {
         UserClient.deleteUser(user);
+        Thread.sleep(1000);
     }
 
 }

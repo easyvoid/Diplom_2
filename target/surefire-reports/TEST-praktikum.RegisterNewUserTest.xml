@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="praktikum.RegisterNewUserTest" time="5.77" tests="6" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="15"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1251"/>
+    <property name="java.class.path" value="Q:\Yandex_Praktikum_Java\Diplom_2\target\test-classes;Q:\Yandex_Praktikum_Java\Diplom_2\target\classes;C:\Users\ulano\.m2\repository\io\qameta\allure\allure-junit4\2.17.3\allure-junit4-2.17.3.jar;C:\Users\ulano\.m2\repository\io\qameta\allure\allure-java-commons\2.17.3\allure-java-commons-2.17.3.jar;C:\Users\ulano\.m2\repository\org\slf4j\slf4j-api\1.7.30\slf4j-api-1.7.30.jar;C:\Users\ulano\.m2\repository\io\qameta\allure\allure-model\2.17.3\allure-model-2.17.3.jar;C:\Users\ulano\.m2\repository\io\qameta\allure\allure-rest-assured\2.17.3\allure-rest-assured-2.17.3.jar;C:\Users\ulano\.m2\repository\io\qameta\allure\allure-attachments\2.17.3\allure-attachments-2.17.3.jar;C:\Users\ulano\.m2\repository\org\freemarker\freemarker\2.3.31\freemarker-2.3.31.jar;C:\Users\ulano\.m2\repository\org\mockito\mockito-core\4.5.1\mockito-core-4.5.1.jar;C:\Users\ulano\.m2\repository\net\bytebuddy\byte-buddy-agent\1.12.9\byte-buddy-agent-1.12.9.jar;C:\Users\ulano\.m2\repository\org\objenesis\objenesis\3.2\objenesis-3.2.jar;C:\Users\ulano\.m2\repository\net\bytebuddy\byte-buddy\1.12.10\byte-buddy-1.12.10.jar;C:\Users\ulano\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;C:\Users\ulano\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\ulano\.m2\repository\io\rest-assured\rest-assured\5.0.1\rest-assured-5.0.1.jar;C:\Users\ulano\.m2\repository\org\apache\groovy\groovy\4.0.1\groovy-4.0.1.jar;C:\Users\ulano\.m2\repository\org\apache\groovy\groovy-xml\4.0.1\groovy-xml-4.0.1.jar;C:\Users\ulano\.m2\repository\org\apache\httpcomponents\httpclient\4.5.13\httpclient-4.5.13.jar;C:\Users\ulano\.m2\repository\org\apache\httpcomponents\httpcore\4.4.13\httpcore-4.4.13.jar;C:\Users\ulano\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\ulano\.m2\repository\commons-codec\commons-codec\1.11\commons-codec-1.11.jar;C:\Users\ulano\.m2\repository\org\apache\httpcomponents\httpmime\4.5.13\httpmime-4.5.13.jar;C:\Users\ulano\.m2\repository\org\hamcrest\hamcrest\2.1\hamcrest-2.1.jar;C:\Users\ulano\.m2\repository\org\ccil\cowan\tagsoup\tagsoup\1.2.1\tagsoup-1.2.1.jar;C:\Users\ulano\.m2\repository\io\rest-assured\json-path\5.0.1\json-path-5.0.1.jar;C:\Users\ulano\.m2\repository\org\apache\groovy\groovy-json\4.0.1\groovy-json-4.0.1.jar;C:\Users\ulano\.m2\repository\io\rest-assured\rest-assured-common\5.0.1\rest-assured-common-5.0.1.jar;C:\Users\ulano\.m2\repository\io\rest-assured\xml-path\5.0.1\xml-path-5.0.1.jar;C:\Users\ulano\.m2\repository\org\apache\commons\commons-lang3\3.11\commons-lang3-3.11.jar;C:\Users\ulano\.m2\repository\com\google\code\gson\gson\2.9.0\gson-2.9.0.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="user.timezone" value="Europe/Moscow"/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="java.vm.specification.version" value="15"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="RU"/>
+    <property name="sun.boot.library.path" value="C:\Users\ulano\.jdks\openjdk-15.0.1\bin"/>
+    <property name="sun.java.command" value="C:\Users\ulano\AppData\Local\Temp\surefire13957896570582057510\surefirebooter11037067060539016123.jar C:\Users\ulano\AppData\Local\Temp\surefire13957896570582057510 2022-06-07T18-19-31_478-jvmRun1 surefire7332193921103706133tmp surefire_015152451241353519475tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="Q:\Yandex_Praktikum_Java\Diplom_2\target\test-classes;Q:\Yandex_Praktikum_Java\Diplom_2\target\classes;C:\Users\ulano\.m2\repository\io\qameta\allure\allure-junit4\2.17.3\allure-junit4-2.17.3.jar;C:\Users\ulano\.m2\repository\io\qameta\allure\allure-java-commons\2.17.3\allure-java-commons-2.17.3.jar;C:\Users\ulano\.m2\repository\org\slf4j\slf4j-api\1.7.30\slf4j-api-1.7.30.jar;C:\Users\ulano\.m2\repository\io\qameta\allure\allure-model\2.17.3\allure-model-2.17.3.jar;C:\Users\ulano\.m2\repository\io\qameta\allure\allure-rest-assured\2.17.3\allure-rest-assured-2.17.3.jar;C:\Users\ulano\.m2\repository\io\qameta\allure\allure-attachments\2.17.3\allure-attachments-2.17.3.jar;C:\Users\ulano\.m2\repository\org\freemarker\freemarker\2.3.31\freemarker-2.3.31.jar;C:\Users\ulano\.m2\repository\org\mockito\mockito-core\4.5.1\mockito-core-4.5.1.jar;C:\Users\ulano\.m2\repository\net\bytebuddy\byte-buddy-agent\1.12.9\byte-buddy-agent-1.12.9.jar;C:\Users\ulano\.m2\repository\org\objenesis\objenesis\3.2\objenesis-3.2.jar;C:\Users\ulano\.m2\repository\net\bytebuddy\byte-buddy\1.12.10\byte-buddy-1.12.10.jar;C:\Users\ulano\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;C:\Users\ulano\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\ulano\.m2\repository\io\rest-assured\rest-assured\5.0.1\rest-assured-5.0.1.jar;C:\Users\ulano\.m2\repository\org\apache\groovy\groovy\4.0.1\groovy-4.0.1.jar;C:\Users\ulano\.m2\repository\org\apache\groovy\groovy-xml\4.0.1\groovy-xml-4.0.1.jar;C:\Users\ulano\.m2\repository\org\apache\httpcomponents\httpclient\4.5.13\httpclient-4.5.13.jar;C:\Users\ulano\.m2\repository\org\apache\httpcomponents\httpcore\4.4.13\httpcore-4.4.13.jar;C:\Users\ulano\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\ulano\.m2\repository\commons-codec\commons-codec\1.11\commons-codec-1.11.jar;C:\Users\ulano\.m2\repository\org\apache\httpcomponents\httpmime\4.5.13\httpmime-4.5.13.jar;C:\Users\ulano\.m2\repository\org\hamcrest\hamcrest\2.1\hamcrest-2.1.jar;C:\Users\ulano\.m2\repository\org\ccil\cowan\tagsoup\tagsoup\1.2.1\tagsoup-1.2.1.jar;C:\Users\ulano\.m2\repository\io\rest-assured\json-path\5.0.1\json-path-5.0.1.jar;C:\Users\ulano\.m2\repository\org\apache\groovy\groovy-json\4.0.1\groovy-json-4.0.1.jar;C:\Users\ulano\.m2\repository\io\rest-assured\rest-assured-common\5.0.1\rest-assured-common-5.0.1.jar;C:\Users\ulano\.m2\repository\io\rest-assured\xml-path\5.0.1\xml-path-5.0.1.jar;C:\Users\ulano\.m2\repository\org\apache\commons\commons-lang3\3.11\commons-lang3-3.11.jar;C:\Users\ulano\.m2\repository\com\google\code\gson\gson\2.9.0\gson-2.9.0.jar;"/>
+    <property name="allure.results.directory" value="Q:\Yandex_Praktikum_Java\Diplom_2\target/allure-results"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\ulano"/>
+    <property name="user.language" value="ru"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2020-10-20"/>
+    <property name="java.home" value="C:\Users\ulano\.jdks\openjdk-15.0.1"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="Q:\Yandex_Praktikum_Java\Diplom_2"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="C:\Users\ulano\AppData\Local\Temp\surefire13957896570582057510\surefirebooter11037067060539016123.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="15.0.1+9-18"/>
+    <property name="user.name" value="Ulanov"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="Cp1251"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="localRepository" value="C:\Users\ulano\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\ulano\AppData\Local\Temp\"/>
+    <property name="idea.version" value="2021.3.2"/>
+    <property name="java.version" value="15.0.1"/>
+    <property name="user.dir" value="Q:\Yandex_Praktikum_Java\Diplom_2"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.library.path" value="C:\Users\ulano\.jdks\openjdk-15.0.1\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Amazon Corretto\jdk11.0.14_10\bin;C:\Users\ulano\AppData\Local\Android\Sdk\platform-tools;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\apache-maven-3.8.4\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Gradle\bin;C:\Program Files\Amazon Corretto\jdk11.0.14_10\bin;C:\Users\ulano\AppData\Local\Android\Sdk\tools;C:\Program Files\SafeNet\Authentication\SAC\x64;C:\Program Files\SafeNet\Authentication\SAC\x32;C:\Program Files\Amazon Corretto\jdk11.0.14_10;C:\WebDriver\bin;C:\Program Files\Git\cmd;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Allure\allure-2.17.3\bin;;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Users\ulano\AppData\Local\Microsoft\WindowsApps;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2020.2.2\bin;;C:\Users\ulano\AppData\Local\GitHubDesktop\bin;C:\Program Files\Amazon Corretto\jdk11.0.14_10\bin;C:\Program Files\apache-maven-3.6.3\bin;;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="15.0.1+9-18"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="59.0"/>
+  </properties>
+  <testcase name="registerNewUserWithoutNameTest" classname="praktikum.RegisterNewUserTest" time="0.713"/>
+  <testcase name="registerNewUserTest" classname="praktikum.RegisterNewUserTest" time="1.328"/>
+  <testcase name="registerNewUserWithoutPasswordTest" classname="praktikum.RegisterNewUserTest" time="0.705"/>
+  <testcase name="registerNewUserWithoutEmailTest" classname="praktikum.RegisterNewUserTest" time="0.733"/>
+  <testcase name="registerSameUserTest" classname="praktikum.RegisterNewUserTest" time="1.571"/>
+  <testcase name="registerNewUserWithoutAllRequiredFieldsTest" classname="praktikum.RegisterNewUserTest" time="0.717"/>
+</testsuite>

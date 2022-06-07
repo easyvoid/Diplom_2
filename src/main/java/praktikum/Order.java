@@ -1,9 +1,12 @@
 package praktikum;
 
-public class Order {
-    private String[] ingredients;
+import java.util.ArrayList;
+import java.util.List;
 
-    public Order(String[] ingredients) {
+public class Order {
+    private List<String> ingredients;
+
+    public Order(List<String> ingredients) {
         this.ingredients = ingredients;
     }
 
@@ -11,11 +14,11 @@ public class Order {
 
     }
 
-    public String[] getIngredients() {
+    public List<String> getIngredients() {
         return ingredients;
     }
 
-    public Order setIngredients(String[] ingredients) {
+    public Order setIngredients(List<String> ingredients) {
         this.ingredients = ingredients;
         return this;
     }

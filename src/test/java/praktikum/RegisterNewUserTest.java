@@ -1,10 +1,8 @@
 package praktikum;
 
 import io.restassured.response.ValidatableResponse;
-import org.junit.After;
 import org.junit.Test;
 
-import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
 public class RegisterNewUserTest {
@@ -12,7 +10,7 @@ public class RegisterNewUserTest {
     User user = new User("ulanovda@gmail.com", "password", "densky");
 
     @Test
-    public void registerNewUser() {
+    public void registerNewUserTest() {
         ValidatableResponse response = UserClient.registerUser(user);
         response.assertThat().body("success", equalTo(true)).and().statusCode(200);
 
@@ -20,7 +18,7 @@ public class RegisterNewUserTest {
     }
 
     @Test
-    public void registerSameUser() {
+    public void registerSameUserTest() {
         UserClient.registerUser(user);
 
         ValidatableResponse response = UserClient.registerUser(user);
@@ -30,25 +28,25 @@ public class RegisterNewUserTest {
     }
 
     @Test
-    public void registerNewUserWithoutEmail() {
+    public void registerNewUserWithoutEmailTest() {
         ValidatableResponse response = UserClient.registerUser(new User().setPassword("password").setName("densky"));
         response.assertThat().body("message", equalTo("Email, password and name are required fields")).and().body("success", equalTo(false)).and().statusCode(403);
     }
 
     @Test
-    public void registerNewUserWithoutPassword() {
+    public void registerNewUserWithoutPasswordTest() {
         ValidatableResponse response = UserClient.registerUser(new User().setEmail("ulanovda@gmail.com").setName("densky"));
         response.assertThat().body("message", equalTo("Email, password and name are required fields")).and().body("success", equalTo(false)).and().statusCode(403);
     }
 
     @Test
-    public void registerNewUserWithoutName() {
+    public void registerNewUserWithoutNameTest() {
         ValidatableResponse response = UserClient.registerUser(new User().setEmail("ulanovda@gmail.com").setPassword("password"));
         response.assertThat().body("message", equalTo("Email, password and name are required fields")).and().body("success", equalTo(false)).and().statusCode(403);
     }
 
     @Test
-    public void registerNewUserWithoutAllRequiredFields() {
+    public void registerNewUserWithoutAllRequiredFieldsTest() {
         ValidatableResponse response = UserClient.registerUser(new User());
         response.assertThat().body("message", equalTo("Email, password and name are required fields")).and().body("success", equalTo(false)).and().statusCode(403);
     }

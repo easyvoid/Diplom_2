@@ -1,6 +1,5 @@
 package praktikum;
 
-import io.restassured.RestAssured;
 import io.restassured.response.ValidatableResponse;
 import org.junit.After;
 import org.junit.Before;
@@ -8,7 +7,6 @@ import org.junit.Test;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
-import static org.junit.Assert.*;
 
 public class LoginTest {
 
@@ -44,7 +42,7 @@ public class LoginTest {
     }
 
     @Test
-    public void loginWithoutAllRequiredFields() {
+    public void loginWithoutAllRequiredFieldsTest() {
         ValidatableResponse response = UserClient.loginUser(new User());
         response.assertThat().body("message", equalTo("email or password are incorrect")).and().body("success", equalTo(false)).and().statusCode(401);
     }

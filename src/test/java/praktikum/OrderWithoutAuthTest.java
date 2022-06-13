@@ -42,7 +42,7 @@ public class OrderWithoutAuthTest {
 
     @After
     public void tearDown() throws InterruptedException {
-        Thread.sleep(500);
+        Thread.sleep(800);
     }
 
 }

@@ -62,6 +62,6 @@ public class UpdateUserTest {
     @After
     public void tearDown() throws InterruptedException {
         UserClient.deleteUser(updatedUser);
-        Thread.sleep(500);
+        Thread.sleep(800);
     }
 }

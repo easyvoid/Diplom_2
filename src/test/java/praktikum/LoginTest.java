@@ -9,47 +9,48 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
 
 public class LoginTest {
-
-    User user = new User("ulanovda@gmail.com", "password", "densky");
+    UserGeneration gen = new UserGeneration();
+    User user = new User(gen.randomEmail(), gen.randomPassword(), gen.randomName());
+    UserClient client = new UserClient();
 
     @Before
     public void setUp() {
-        UserClient.registerUser(user);
+        client.registerUser(user);
     }
 
     @Test
     public void loginPositiveTest() {
-        ValidatableResponse response = UserClient.loginUser(new User().setPassword("password").setEmail("ulanovda@gmail.com"));
+        ValidatableResponse response = client.loginUser(new User().setPassword(user.getPassword()).setEmail(user.getEmail()));
         response.assertThat().body("accessToken", notNullValue()).and().body("success", equalTo(true)).and().statusCode(200);
     }
 
     @Test
     public void loginWithIncorrectEmailAndPasswordTest() {
-        ValidatableResponse response = UserClient.loginUser(new User().setEmail("blabla@bla.com").setPassword("parol"));
+        ValidatableResponse response = client.loginUser(new User().setEmail("blabla@bla.com").setPassword("parol"));
         response.assertThat().body("message", equalTo("email or password are incorrect")).and().body("success", equalTo(false)).and().statusCode(401);
     }
 
     @Test
     public void loginWithIncorrectEmailTest() {
-        ValidatableResponse response = UserClient.loginUser(new User().setEmail("blabla@bla.com").setPassword("password"));
+        ValidatableResponse response = client.loginUser(new User().setEmail("blabla@bla.com").setPassword(user.getPassword()));
         response.assertThat().body("message", equalTo("email or password are incorrect")).and().body("success", equalTo(false)).and().statusCode(401);
     }
 
     @Test
     public void loginWithIncorrectPasswordTest() {
-        ValidatableResponse response = UserClient.loginUser(new User().setEmail("ulanovda@gmail.com").setPassword("parol"));
+        ValidatableResponse response = client.loginUser(new User().setEmail(user.getEmail()).setPassword("parol"));
         response.assertThat().body("message", equalTo("email or password are incorrect")).and().body("success", equalTo(false)).and().statusCode(401);
     }
 
     @Test
     public void loginWithoutAllRequiredFieldsTest() {
-        ValidatableResponse response = UserClient.loginUser(new User());
+        ValidatableResponse response = client.loginUser(new User());
         response.assertThat().body("message", equalTo("email or password are incorrect")).and().body("success", equalTo(false)).and().statusCode(401);
     }
 
     @After
     public void tearDown() throws InterruptedException {
-        UserClient.deleteUser(user);
+        client.deleteUser(user);
         Thread.sleep(800);
     }
 

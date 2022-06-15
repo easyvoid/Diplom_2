@@ -10,10 +10,11 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
 
 public class OrderWithoutAuthTest {
+    OrderUserClient order = new OrderUserClient();
 
     @Test
     public void createNewOrderWithoutIngredientsTest() {
-        ValidatableResponse response = OrderClient.createOrderNotAuth(new Order().setIngredients(new ArrayList<>()));
+        ValidatableResponse response = order.createOrderNotAuth(new Order().setIngredients(new ArrayList<>()));
         response.assertThat().body("message", equalTo("Ingredient ids must be provided")).and().body("success", equalTo(false)).and().statusCode(400);
     }
 
@@ -23,20 +24,20 @@ public class OrderWithoutAuthTest {
         ingredients.add("123");
         ingredients.add("321");
 
-        ValidatableResponse response = OrderClient.createOrderNotAuth(new Order().setIngredients(ingredients));
+        ValidatableResponse response = order.createOrderNotAuth(new Order().setIngredients(ingredients));
         response.assertThat().statusCode(500);
     }
 
     @Test
     public void createNewOrderPositiveTest() {
-        String firstIngredient = OrderClient.getIngredient(0);
-        String secondIngredient = OrderClient.getIngredient(1);
+        String firstIngredient = order.getIngredient(0);
+        String secondIngredient = order.getIngredient(1);
 
         ArrayList<String> ingredients = new ArrayList<>();
         ingredients.add(firstIngredient);
         ingredients.add(secondIngredient);
 
-        ValidatableResponse response = OrderClient.createOrderNotAuth(new Order().setIngredients(ingredients));
+        ValidatableResponse response = order.createOrderNotAuth(new Order().setIngredients(ingredients));
         response.assertThat().body("order.number", notNullValue()).and().body("success", equalTo(true)).and().statusCode(200);
     }
 

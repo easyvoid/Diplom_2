@@ -11,17 +11,19 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
 
 public class OrderWithAuthTest {
-
-    User user = new User("ulanovda@gmail.com", "password", "densky");
+    UserGeneration gen = new UserGeneration();
+    User user = new User(gen.randomEmail(), gen.randomPassword(), gen.randomName());
+    UserClient client = new UserClient();
+    OrderUserClient order = new OrderUserClient();
 
     @Before
     public void setUp() {
-        UserClient.registerUser(user);
+        client.registerUser(user);
     }
 
     @Test
     public void createNewOrderWithoutIngredientsTest() {
-        ValidatableResponse response = OrderClient.createOrderWithAuth(user, new Order().setIngredients(new ArrayList<>()));
+        ValidatableResponse response = order.createOrderWithAuth(user, new Order().setIngredients(new ArrayList<>()));
         response.assertThat().body("message", equalTo("Ingredient ids must be provided")).and().body("success", equalTo(false)).and().statusCode(400);
     }
 
@@ -31,26 +33,26 @@ public class OrderWithAuthTest {
         ingredients.add("123");
         ingredients.add("321");
 
-        ValidatableResponse response = OrderClient.createOrderWithAuth(user, new Order().setIngredients(ingredients));
+        ValidatableResponse response = order.createOrderWithAuth(user, new Order().setIngredients(ingredients));
         response.assertThat().statusCode(500);
     }
 
     @Test
     public void createNewOrderPositiveTest() {
-        String firstIngredient = OrderClient.getIngredient(0);
-        String secondIngredient = OrderClient.getIngredient(1);
+        String firstIngredient = order.getIngredient(0);
+        String secondIngredient = order.getIngredient(1);
 
         ArrayList<String> ingredients = new ArrayList<>();
         ingredients.add(firstIngredient);
         ingredients.add(secondIngredient);
 
-        ValidatableResponse response = OrderClient.createOrderWithAuth(user, new Order().setIngredients(ingredients));
-        response.assertThat().body("order.number", notNullValue()).and().body("success", equalTo(true)).and().body("order.owner.name", equalTo("densky")).and().statusCode(200);
+        ValidatableResponse response = order.createOrderWithAuth(user, new Order().setIngredients(ingredients));
+        response.assertThat().body("order.number", notNullValue()).and().body("success", equalTo(true)).and().body("order.owner.name", equalTo(user.getName())).and().statusCode(200);
     }
 
     @After
     public void tearDown() throws InterruptedException {
-        UserClient.deleteUser(user);
+        client.deleteUser(user);
         Thread.sleep(800);
     }
 }

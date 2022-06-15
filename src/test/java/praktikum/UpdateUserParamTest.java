@@ -13,6 +13,7 @@ import static org.junit.Assert.*;
 
 @RunWith(Parameterized.class)
 public class UpdateUserParamTest {
+    UserClient client = new UserClient();
     String email;
     String password;
     String name;
@@ -64,21 +65,14 @@ public class UpdateUserParamTest {
 
     @Before
     public void setUp() {
-        UserClient.registerUser(user);
+        client.registerUser(user);
     }
 
     @Test
     public void updateNegativeTest() {
         User updatedUser = new User(email, password, name);
 
-        ValidatableResponse response = given()
-                .baseUri("https://stellarburgers.nomoreparties.site/")
-                .header("Content-type", "application/json")
-                .log().all()
-                .body(updatedUser)
-                .when()
-                .patch("/api/auth/user")
-                .then().log().all();
+        ValidatableResponse response = client.updateUserWithoutLogin(updatedUser);
 
         response.assertThat().body("message", equalTo("You should be authorised")).and().body("success", equalTo(false)).and().statusCode(401);
         // задаю переменной statusCode значение статус кода из ответа
@@ -91,7 +85,7 @@ public class UpdateUserParamTest {
 
     @After
     public void tearDown() throws InterruptedException {
-        UserClient.deleteUser(user);
+        client.deleteUser(user);
         Thread.sleep(800);
     }
 }

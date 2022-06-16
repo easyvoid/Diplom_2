@@ -6,10 +6,6 @@ import java.util.Locale;
 
 public class UserGeneration {
 
-    private String name;
-    private String email;
-    private String password;
-
     public UserGeneration() {
     }
 

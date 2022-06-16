@@ -63,7 +63,7 @@ public class UpdateUserTest {
 
     @After
     public void tearDown() throws InterruptedException {
-        client.deleteUser(updatedUser);
         Thread.sleep(800);
+        client.deleteUser(updatedUser);
     }
 }

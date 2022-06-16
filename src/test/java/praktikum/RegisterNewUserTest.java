@@ -3,8 +3,10 @@ package praktikum;
 import io.restassured.response.ValidatableResponse;
 import org.junit.After;
 import org.junit.Test;
+import org.mockito.internal.matchers.NotNull;
 
 import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.notNullValue;
 
 public class RegisterNewUserTest {
     UserGeneration gen = new UserGeneration();
@@ -16,7 +18,6 @@ public class RegisterNewUserTest {
         ValidatableResponse response = client.registerUser(user);
         response.assertThat().body("success", equalTo(true)).and().statusCode(200);
 
-        client.deleteUser(user);
     }
 
     @Test
@@ -26,7 +27,6 @@ public class RegisterNewUserTest {
         ValidatableResponse response = client.registerUser(user);
         response.assertThat().body("message", equalTo("User already exists")).and().body("success", equalTo(false)).and().statusCode(403);
 
-        client.deleteUser(user);
     }
 
     @Test
@@ -55,6 +55,10 @@ public class RegisterNewUserTest {
 
     @After
     public void tearDown() throws InterruptedException {
+        String body = client.loginUser(user).and().extract().body().path("accessToken");
         Thread.sleep(800);
+        if (body != null) {
+            client.deleteUser(user);
+        }
     }
 }
